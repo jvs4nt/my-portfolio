@@ -4,19 +4,44 @@ import ProjectCard from './ProjectCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ProjectsCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+  // Python carousel
+  const [emblaRefPython, emblaApiPython] = useEmblaCarousel({ 
     align: 'start',
     slidesToScroll: 1,
     dragFree: true,
   });
+  const scrollPrevPython = useCallback(() => {
+    if (emblaApiPython) emblaApiPython.scrollPrev();
+  }, [emblaApiPython]);
+  const scrollNextPython = useCallback(() => {
+    if (emblaApiPython) emblaApiPython.scrollNext();
+  }, [emblaApiPython]);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+  // Data Science carousel
+  const [emblaRefColab, emblaApiColab] = useEmblaCarousel({ 
+    align: 'start',
+    slidesToScroll: 1,
+    dragFree: true,
+  });
+  const scrollPrevColab = useCallback(() => {
+    if (emblaApiColab) emblaApiColab.scrollPrev();
+  }, [emblaApiColab]);
+  const scrollNextColab = useCallback(() => {
+    if (emblaApiColab) emblaApiColab.scrollNext();
+  }, [emblaApiColab]);
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  // Power BI carousel
+  const [emblaRefPowerBI, emblaApiPowerBI] = useEmblaCarousel({ 
+    align: 'start',
+    slidesToScroll: 1,
+    dragFree: true,
+  });
+  const scrollPrevPowerBI = useCallback(() => {
+    if (emblaApiPowerBI) emblaApiPowerBI.scrollPrev();
+  }, [emblaApiPowerBI]);
+  const scrollNextPowerBI = useCallback(() => {
+    if (emblaApiPowerBI) emblaApiPowerBI.scrollNext();
+  }, [emblaApiPowerBI]);
 
   const projects = [
     {
@@ -68,16 +93,16 @@ const ProjectsCarousel = () => {
             </p> */}
           </div>
           
-          <div className="hidden md:flex space-x-2">
+          <div className="flex space-x-2">
             <button
-              onClick={scrollPrev}
+              onClick={scrollPrevPython}
               className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
               aria-label="Projeto anterior"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
-              onClick={scrollNext}
+              onClick={scrollNextPython}
               className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
               aria-label="Próximo projeto"
             >
@@ -86,7 +111,7 @@ const ProjectsCarousel = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden" ref={emblaRefPython}>
           <div className="flex gap-6">
             {pythonProjects.map((project, index) => (
               <ProjectCard
@@ -108,16 +133,16 @@ const ProjectsCarousel = () => {
             </h2>
           </div>
           
-          <div className="hidden md:flex space-x-2">
+          <div className="flex space-x-2">
             <button
-              onClick={scrollPrev}
+              onClick={scrollPrevColab}
               className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
               aria-label="Projeto anterior"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
-              onClick={scrollNext}
+              onClick={scrollNextColab}
               className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
               aria-label="Próximo projeto"
             >
@@ -126,7 +151,7 @@ const ProjectsCarousel = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden" ref={emblaRefColab}>
           <div className="flex gap-6">
             {googleColabProjects.map((project, index) => (
               <ProjectCard
@@ -151,16 +176,16 @@ const ProjectsCarousel = () => {
             </p> */}
           </div>
           
-          <div className="hidden md:flex space-x-2">
+          <div className="flex space-x-2">
             <button
-              onClick={scrollPrev}
+              onClick={scrollPrevPowerBI}
               className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
               aria-label="Projeto anterior"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
-              onClick={scrollNext}
+              onClick={scrollNextPowerBI}
               className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
               aria-label="Próximo projeto"
             >
@@ -169,7 +194,7 @@ const ProjectsCarousel = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden" ref={emblaRefPowerBI}>
           <div className="flex gap-6">
             {powerBIProjects.map((project, index) => (
               <ProjectCard
