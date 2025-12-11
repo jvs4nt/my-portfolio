@@ -43,6 +43,19 @@ const ProjectsCarousel = () => {
     if (emblaApiPowerBI) emblaApiPowerBI.scrollNext();
   }, [emblaApiPowerBI]);
 
+  // Android + Firebase carousel
+  const [emblaRefAndroidFirebase, emblaApiAndroidFirebase] = useEmblaCarousel({ 
+    align: 'start',
+    slidesToScroll: 1,
+    dragFree: true,
+  });
+  const scrollPrevAndroidFirebase = useCallback(() => {
+    if (emblaApiPowerBI) emblaApiPowerBI.scrollPrev();
+  }, [emblaApiPowerBI]);
+  const scrollNextAndroidFirebase = useCallback(() => {
+    if (emblaApiPowerBI) emblaApiPowerBI.scrollNext();
+  }, [emblaApiPowerBI]);
+
   const projects = [
     {
       title: "Análise com Data Science",
@@ -73,24 +86,70 @@ const ProjectsCarousel = () => {
       subtitle: "Python",
       description: "Sistema de gerenciamento de pedidos, treinando os princípios SOLID e padrões de design para organização de software. O sistema simula um processo de pagamento e envio de notificações e-mail e SMS.",
       link: "https://github.com/yaesg17/treinando-python"
-    }
+    },
+    {
+      title: "Organizador de gastos universitários",
+      subtitle: "Android + Firebase",
+      description: "Organizador de gastos. Foco em treino de desenvolvimento mobile.",
+      link: "https://github.com/jvs4nt/CollegeSpentOrganizer"
+    },
   ];
 
   const pythonProjects = projects.filter(project => project.subtitle === "Python");
   const googleColabProjects = projects.filter(project => project.subtitle === "Google Colab");
   const powerBIProjects = projects.filter(project => project.subtitle === "Power BI");
+  const androidFirebaseProjects = projects.filter(project => project.subtitle === "Android + Firebase");
 
   return (
     <section className="py-20 px-6 bg-background">
+
+      <div className="max-w-7xl mx-auto mt-16">
+        <div className="flex items-center justify-between mb-12">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Mobile
+            </h2>
+          </div>
+          
+          <div className="flex space-x-2">
+            <button
+              onClick={scrollPrevAndroidFirebase}
+              className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
+              aria-label="Projeto anterior"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={scrollNextAndroidFirebase}
+              className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
+              aria-label="Próximo projeto"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        <div className="overflow-hidden" ref={emblaRefAndroidFirebase}>
+          <div className="flex gap-6">
+            {androidFirebaseProjects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                subtitle={project.subtitle}
+                description={project.description}
+                link={project.link}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+      
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-12">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Python
             </h2>
-            {/* <p className="text-muted-foreground text-lg">
-              Conheça alguns dos meus estudos recentes:
-            </p> */}
           </div>
           
           <div className="flex space-x-2">
