@@ -1,73 +1,91 @@
-# Welcome to your Lovable project
+## Meu Portfolio — João Santos (jvs4nt)
 
-## Project info
+Um portfolio moderno construído com React + Vite, Tailwind CSS e shadcn/ui.
 
-**URL**: https://lovable.dev/projects/795a9124-42a6-4286-b7f0-835bacab0f76
+**Principais Recursos**
+- **UI moderna:** Tailwind CSS + shadcn/ui para componentes acessíveis e consistentes.
+- **Carrosséis de projetos:** `embla-carousel-react` com navegação suave.
+- **Rotas:** `react-router-dom` com páginas de Home e 404.
+- **Feedbacks:** Toasts via `sonner` e `toaster`.
+- **State/Data:** `@tanstack/react-query` para futuros dados reativos.
 
-## How can I edit this code?
+**Tecnologias**
+- **Frontend:** React (SWC), Vite
+- **Estilos:** Tailwind CSS, shadcn/ui
+- **Carrossel:** embla-carousel-react
+- **Roteamento:** react-router-dom
+- **State/Data:** @tanstack/react-query
 
-There are several ways of editing your application.
+**Requisitos**
+- Node.js 18+ (recomendado)
+- Gerenciador de pacotes (npm, pnpm ou bun)
 
-**Use Lovable**
+**Instalação**
+Escolha seu gerenciador de pacotes e instale as dependências:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/795a9124-42a6-4286-b7f0-835bacab0f76) and start prompting.
+```bash
+# usando npm
+npm install
 
-Changes made via Lovable will be committed automatically to this repo.
+# usando pnpm
+pnpm install
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# usando bun
+bun install
 ```
 
-**Edit a file directly in GitHub**
+**Execução (Dev)**
+Inicie o servidor Vite em modo desenvolvimento (porta configurada: 8080):
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# npm
+npm run dev
 
-**Use GitHub Codespaces**
+# pnpm
+pnpm dev
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# bun
+bun run dev
+```
 
-## What technologies are used for this project?
+Após iniciar, acesse: http://localhost:8080
 
-This project is built with:
+**Build e Preview**
+Gere os arquivos de produção e faça um preview local:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# build
+npm run build
 
-## How can I deploy this project?
+# preview (servidor estático do Vite)
+npm run preview
+```
 
-Simply open [Lovable](https://lovable.dev/projects/795a9124-42a6-4286-b7f0-835bacab0f76) and click on Share -> Publish.
+**Scripts úteis**
+- `dev`: inicia servidor de desenvolvimento
+- `build`: build de produção
+- `preview`: serve o build localmente
 
-## Can I connect a custom domain to my Lovable project?
+**Estrutura do Projeto**
+- `index.html`: HTML base que injeta `src/main.tsx`
+- `src/main.tsx`: bootstrap da aplicação com React e Vite
+- `src/App.tsx`: providers globais (QueryClient, Tooltip, Router) e rotas
+- `src/pages/Index.tsx`: página principal
+- `src/pages/NotFound.tsx`: página 404
+- `src/components/ProjectsCarousel.tsx`: carrosséis por categoria
+- `src/components/ProjectCard.tsx`: cartão de projeto
+- `src/components/ui/*`: componentes shadcn/ui
+- `tailwind.config.ts`: configuração do Tailwind
+- `vite.config.ts`: configuração do Vite e alias `@` → `src`
 
-Yes, you can!
+**Configurações**
+- Alias de import: use `@` para importar de `src` (ex.: `@/components/...`).
+- Porta Dev: 8080 (ajustável em `vite.config.ts`).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+**Licença**
+Projeto pessoal. Uso e inspiração permitidos; atribuição apreciada.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Contato**
+- Autor: João Santos — jvs4nt
+- Projetos: confira a seção de carrosséis na Home.
+
